@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Details</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>User Details</h1>
+    <p><strong>User ID:</strong> <span id="user-id"></span></p>
+    <p><strong>Name:</strong> <span id="user-name"></span></p>
+    <p><strong>Data 1:</strong> <span id="user-data1"></span></p>
+    <p><strong>Data 2:</strong> <span id="user-data2"></span></p>
+    <a href="{{ url_for('index') }}">Back to List</a>
+    <script>
+        // Populate user details from URL query parameters (or server-side data)
+        const params = new URLSearchParams(window.location.search);
+        document.getElementById('user-id').textContent = params.get('id');
+        document.getElementById('user-name').textContent = params.get('name');
+        document.getElementById('user-data1').textContent = params.get('data1');
+        document.getElementById('user-data2').textContent = params.get('data2');
+    </script>
+</body>
+</html>
